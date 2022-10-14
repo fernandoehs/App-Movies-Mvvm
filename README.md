@@ -1,3 +1,4 @@
+App Movies Mvvm
 
 1. ¿En qué consiste el principio de responsabilidad única? ¿Cuál es su propósito?
 Rsta:
@@ -20,5 +21,12 @@ hacer un fragment con una imagen de error con avisos segun corresponda y con un 
 Tambien me falto hacer el diseno para modo landscape, por lo tanto lo configure para que solo se 
 pudiera usar modo portrait, en este caso seria hacer otros layouts xml con una reestructuracion de los
 elementos para que se puedan ver correctamente.
+
+# ScreenShots
+<p float="left">
+  <img src="https://github.com/fernandoehs/App-Movies-Mvvm/blob/main/Screenshot_2022-10-14-02-37-23-761_com.fernandoehs.movies.jpg" width="170" />
+  <img src="https://github.com/fernandoehs/App-Movies-Mvvm/blob/main/Screenshot_2022-10-14-02-37-30-398_com.fernandoehs.movies.jpg" width="170" />
+  <img src="https://github.com/fernandoehs/App-Movies-Mvvm/blob/main/Screenshot_2022-10-14-02-37-38-314_com.fernandoehs.movies.jpg" width="170" />
+</p>
 
 
