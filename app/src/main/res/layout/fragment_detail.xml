@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".presentation.detail.DetailFragment">
+    <ImageView
+        android:id="@+id/detImgPosterMovie"
+        android:src="@mipmap/ic_launcher"
+        android:scaleType="centerCrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="#aa000000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/detInfoDetailContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginHorizontal="24dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+            <TextView
+                android:id="@+id/detTvMovieTitle"
+                android:gravity="center"
+                android:layout_gravity="center"
+                tools:text="Hola mundo"
+                android:textColor="@color/white"
+                android:fontFamily="@font/poppins_semibold"
+                android:textSize="40sp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detTvLaunchYear"
+                    style="@style/TVMovieDetail"
+                    tools:text="2023"
+                    android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/detTvLanguage"
+                    style="@style/TVMovieDetail"
+                    tools:text="en"
+                    android:layout_marginEnd="10dp" />
+
+                <TextView
+                    android:id="@+id/detTvRate"
+                    style="@style/TVMovieDetail"
+                    tools:text="8.0"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:layout_marginEnd="10dp"
+                    android:drawablePadding="5dp"
+                    android:backgroundTint="#FFEB3B"
+                    app:drawableStartCompat="@android:drawable/btn_star_big_on"
+                    app:drawableTint="@color/black" />
+
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/detBtnVerTrailer"
+                style="@style/BtnTransparent"
+                android:layout_marginTop="15dp"
+                android:text="@string/watch_trailer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLabelRecommendForYou" />
+
+            <TextView
+                android:id="@+id/detTvSinopsis"
+                android:layout_marginTop="15dp"
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/white"
+                android:text="@string/movie_plot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/detTvOverview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/white"
+                android:layout_marginBottom="15dp"
+                tools:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ex urna, auctor sit amet lorem vel, pellentesque ultricies tortor"
+                />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

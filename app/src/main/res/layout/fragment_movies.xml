@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".presentation.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="24dp">
+        <TextView
+            android:id="@+id/tvLabelUpcoming"
+            style="@style/MovieTitleCategory"
+            android:text="@string/upcoming_movies"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvUpcomingMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelUpcoming"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/movie_titles_margin"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="6"
+            tools:listitem="@layout/movie_item"
+            />
+
+        <TextView
+            android:id="@+id/tvLabelTopRated"
+            style="@style/MovieTitleCategory"
+            android:layout_marginVertical="@dimen/movie_titles_margin"
+            android:text="@string/top_rated"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvUpcomingMovies" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopRatedMovies"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelTopRated"
+            android:layout_marginTop="@dimen/movie_titles_margin"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:itemCount="6"
+            tools:listitem="@layout/movie_item"
+            />
+
+        <TextView
+            android:id="@+id/tvLabelRecommendForYou"
+            style="@style/MovieTitleCategory"
+            android:layout_marginVertical="@dimen/movie_titles_margin"
+            android:text="@string/recommended_for_you"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvTopRatedMovies" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLanguage"
+            style="@style/BtnBlack"
+            android:layout_marginTop="5dp"
+            android:text="@string/language"
+            app:backgroundTint="#070707"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelRecommendForYou"
+            app:rippleColor="#FFFFFF"
+            app:strokeColor="#C81011"
+            app:strokeWidth="3dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnLaunchYear"
+            style="@style/BtnBlack"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:text="@string/launch_year"
+            app:backgroundTint="#070707"
+            app:layout_constraintStart_toEndOf="@+id/btnLanguage"
+            app:layout_constraintTop_toBottomOf="@+id/tvLabelRecommendForYou"
+            app:rippleColor="#FBFBFB"
+            app:strokeColor="#C81011"
+            app:strokeWidth="3dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRecommendedMovies"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/movie_titles_margin"
+            android:layout_marginEnd="24dp"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:spanCount="2"
+            tools:itemCount="10"
+            tools:listitem="@layout/movie_big_item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLanguage"
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
+
