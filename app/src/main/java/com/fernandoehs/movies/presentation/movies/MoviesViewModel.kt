@@ -7,6 +7,7 @@ import com.fernandoehs.movies.domain.GetRecommendedMoviesUseCase
 import com.fernandoehs.movies.domain.GetTopRatedMoviesUseCase
 import com.fernandoehs.movies.domain.GetUpcomingMoviesUseCase
 import com.fernandoehs.movies.domain.model.Movie
+import com.fernandoehs.movies.utils.Utils
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
@@ -26,12 +27,12 @@ class MoviesViewModel @Inject constructor(
     fun onCreate() {
         viewModelScope.launch {
             val asyncUpcomingMovies = async { getUpcomingMoviesUseCase() }
-            val asynTopRatedMovies = async { getTopRatedMoviesUseCase() }
+            val asyncTopRatedMovies = async { getTopRatedMoviesUseCase() }
 
             val (
                 upcomingMovies,
                 topRatedMovies
-            ) = awaitAll(asyncUpcomingMovies, asynTopRatedMovies)
+            ) = awaitAll(asyncUpcomingMovies, asyncTopRatedMovies)
 
             upcomingMoviesModel.postValue(upcomingMovies)
 

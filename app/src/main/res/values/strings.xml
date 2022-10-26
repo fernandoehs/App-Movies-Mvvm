@@ -8,9 +8,10 @@
     <string name="recommended_for_you">Recomendados para ti</string>
     <string name="language">En Español</string>
     <string name="launch_year">Lanzadas en 2020</string>
-    <string name="lo_sentimos">¡Lo sentimos!</string>
-    <string name="try_again">Intentar nuevamente</string>
-    <string name="cancel">Cancelar</string>
     <string name="ok">Ok</string>
     <string name="no_trailers">No existen trailers en Youtube para la película seleccionada</string>
+    <string name="lo_sentimos">¡Lo sentimos!</string>
+    <string name="error">Ocurrió un error.\nRevisa por tu conexión por favor</string>
+    <string name="try_again">Intentar nuevamente</string>
+    <string name="cancel">Cancelar</string>
 </resources>

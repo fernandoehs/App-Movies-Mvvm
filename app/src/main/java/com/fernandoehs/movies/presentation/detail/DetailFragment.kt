@@ -4,10 +4,10 @@ import android.content.ActivityNotFoundException
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
 import com.fernandoehs.movies.databinding.FragmentDetailBinding
 import com.fernandoehs.movies.utils.Constants
@@ -92,6 +92,34 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
                 }
                 if (youtubeResults.isNotEmpty()) {
                     watchTrailer(youtubeResults.first().key)
+                }else{
+                    Utils.screenError(mContext){retry ->
+                        if(retry){
+                            detailViewModel.getTrailerResults(movieId!!)
+                        }else{
+                            listener.onBackGeneral()
+                        }
+                    }
+                }
+            }else{
+                Utils.screenError(mContext){retry ->
+                    if(retry){
+                        detailViewModel.getTrailerResults(movieId!!)
+                    }else{
+                        listener.onBackGeneral()
+                    }
+                }
+            }
+
+            detailViewModel.showErrorModel.observe(viewLifecycleOwner){ screenError ->
+                if(screenError){
+                    Utils.screenError(mContext) { retry ->
+                        if(retry){
+                            detailViewModel.getTrailerResults(movieId!!)
+                        }else{
+                            listener.onBackGeneral()
+                        }
+                    }
                 }
             }
         }

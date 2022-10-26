@@ -1,6 +1,5 @@
 package com.fernandoehs.movies.presentation.movies
 
-import android.app.Activity
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,10 +8,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
 import com.fernandoehs.movies.R
 import com.fernandoehs.movies.databinding.FragmentMoviesBinding
-import com.fernandoehs.movies.utils.Utils
 import com.fernandoehs.movies.domain.model.Movie
 import com.fernandoehs.movies.presentation.base.BaseFragment
+import com.fernandoehs.movies.presentation.detail.DetailViewModel
 import com.fernandoehs.movies.presentation.interfaces.IScreenNavigation
+import com.fernandoehs.movies.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -25,6 +25,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>() {
     private var recyclerUpcoming: RecyclerView? = null
     private var recyclerTopRated: RecyclerView? = null
     private var recyclerRecommended: RecyclerView? = null
+
 
     private var launchYear = ""
     private var language = ""
@@ -59,7 +60,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>() {
     }
 
     private fun initViewModels() {
-        moviesViewModel = ViewModelProvider(this).get(MoviesViewModel::class.java)
+        moviesViewModel = ViewModelProvider(this)[MoviesViewModel::class.java]
         moviesViewModel.onCreate()
 
         moviesViewModel.upcomingMoviesModel.observe(viewLifecycleOwner) { upcomingMovies ->
@@ -78,7 +79,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>() {
     }
 
     private fun initRecyclersAndAdapters() {
-        moviesUpcomingAdapter = MoviesAdapter(){ movie ->
+        moviesUpcomingAdapter = MoviesAdapter { movie ->
             listener.navigateToMoviesDetail(
                 movie.title,
                 movie.release_year,
@@ -89,7 +90,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>() {
                 movie.id.toString()
             )
         }
-        moviesTopRatedAdapter = MoviesAdapter(){ movie ->
+        moviesTopRatedAdapter = MoviesAdapter{ movie ->
             listener.navigateToMoviesDetail(
                 movie.title,
                 movie.release_year,
@@ -100,7 +101,7 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>() {
                 movie.id.toString()
             )
         }
-        moviesRecommendedAdapter = MoviesAdapter(){ movie ->
+        moviesRecommendedAdapter = MoviesAdapter{ movie ->
             listener.navigateToMoviesDetail(
                 movie.title,
                 movie.release_year,
@@ -136,6 +137,13 @@ class MoviesFragment : BaseFragment<FragmentMoviesBinding>() {
     }
 
     private fun setTopRatedMoviesAdapter(topRatedMovies: List<Movie>){
+        if (topRatedMovies.isEmpty()){
+            Utils.screenError(mContext){ retry ->
+                if(retry){
+                    listener.onBackGeneral()
+                }
+            }
+        }
         topRatedMovies.forEach{ topRatedMovie ->
             moviesTopRatedAdapter?.addItem(topRatedMovie)
         }

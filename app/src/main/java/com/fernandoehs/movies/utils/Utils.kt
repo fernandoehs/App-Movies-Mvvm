@@ -58,4 +58,8 @@ object Utils {
         posterImageView.setImageBitmap(myBitmap)
     }
 
+    fun screenError(context: Context, retry: (retry: Boolean)-> Unit){
+        ErrorAlert.newInstance(context).showMessage(retry)
+    }
+
 }
