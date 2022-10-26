@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.fernandoehs.movies.utils.MoviesType
-import com.fernandoehs.movies.core.extensions.gone
-import com.fernandoehs.movies.core.extensions.show
+import com.fernandoehs.movies.utils.gone
+import com.fernandoehs.movies.utils.show
 import com.fernandoehs.movies.utils.Constants
 import com.fernandoehs.movies.utils.Utils
 import com.fernandoehs.movies.databinding.MovieBigItemBinding

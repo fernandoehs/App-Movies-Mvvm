@@ -12,8 +12,8 @@ import androidx.viewbinding.ViewBinding
 abstract class BaseFragment<Binding: ViewBinding>: Fragment() {
 
     protected var _binding: Binding? = null
-    protected lateinit var mView: View
-    protected lateinit var mContext: Context
+    private lateinit var mView: View
+    private lateinit var mContext: Context
     protected val  binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -84,7 +84,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     }
 
     private fun initViewModel() {
-        detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
+        detailViewModel = ViewModelProvider(this)[DetailViewModel::class.java]
         detailViewModel.trailerResultsModel.observe(viewLifecycleOwner) { trailerResults ->
             if(trailerResults.isNotEmpty()){
                 val youtubeResults = trailerResults.filter { result ->

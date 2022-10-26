@@ -1,4 +1,4 @@
-package com.fernandoehs.movies.core.extensions
+package com.fernandoehs.movies.utils
 
 import android.view.View
 
